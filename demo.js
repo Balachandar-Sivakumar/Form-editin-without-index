@@ -3,9 +3,6 @@ let btn = document.querySelector('.submit-btn'),
     cart = document.querySelector('.grocery-list'),
     clearbtn = document.querySelector('.clear-btn');
    
-        
-
-
 let local = JSON.parse(localStorage.getItem('grocery')) || [], inid = 0;
 
 btn.addEventListener('click', function (event) {
@@ -41,6 +38,8 @@ function startCart(n, num) {
         list.remove();
         local = local.filter(x => x.id !== num);
         localStorage.setItem('grocery', JSON.stringify(local));
+
+        errormsg('green','Item deleted successfully');
     });
 
     edit.addEventListener('click', () => {
